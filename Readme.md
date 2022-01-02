@@ -9,13 +9,13 @@
 
 ### Setting up CloudControl (Client)
 1) Install the `cctrl` binary with `npm i cctrl`.
-2) Configure the `dist/client/service.js` file to run at launch. (Wiki coming soon)
+2) Configure `ccservice-client` file to run at launch on your system.
 3) Use the cli tool, `cctrl` to link up to your host `cctrl link <host>`.
 4) Pair devices with `cctrl pair <code>`.
 
 ### Setting up CloudControl (Server)
 1) Install the `cctrl` binary with `npm i cctrl`.
-2) Configure the `dist/server/service.js` file to run at launch. (Wiki coming soon)
+2) Configure `ccservice-server` file to run at launch on your system.
 3) Connect your host.
 4) Visit **:2122** to pair devices, alongside the client CLI tool.
 
