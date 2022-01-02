@@ -1,12 +1,16 @@
 {
-  "name": "cloudcontrol",
-  "version": "1.0.0",
-  "description": "",
+  "name": "cctrl",
+  "version": "1.0.1",
+  "description": "Execute commands remotely (x2!)",
   "main": "dist/client/service.js",
   "scripts": {
     "watch": "tsc --prokject . --watch",
-    "start": "node dist/index.js",
-    "postinstall": "node setup.js"
+    "start": "node dist/index.js"
+  },
+  "bin": {
+    "cctrl": "./dist/client/cli.js",
+    "ccservice-server": "./dist/server/service.js",
+    "ccservice-client": "./dist/client/service.js"
   },
   "keywords": [
     "Automation",

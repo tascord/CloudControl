@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { io, Socket } from "socket.io-client";
 
 type Command = {
@@ -87,7 +89,7 @@ if (!command || !Commands[command]) {
     const usages = commands.map(c => Commands[c].usage);
 
     console.log("Usage");
-    console.log("\t$ cloud-cli <command> [args]");
+    console.log("\t$ cctrl <command> [args]");
     console.log("");
     console.log("Commands");
 

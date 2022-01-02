@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { Server as SocketServer } from "socket.io";
 import express from "express";
 import http from "http";

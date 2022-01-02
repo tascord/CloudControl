@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { fetch_or_create_file } from "./helpers";
 import { Socket, Server as SocketServer } from "socket.io";
 import { existsSync, writeFileSync } from "fs";
