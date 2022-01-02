@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client.js" defer></script>
+    <title>☁️ Control</title>
+</head>
+
+<body>
+
+    <header>
+        <h1><img src="/logo.png" alt="Cloud"> Control</h1>
+        <h2>Host: <span id="host_status">Loading...</span></h2>
+    </header>
+    
+    <main>
+
+        <h1 id="client_status">...</h1>
+        
+        <form id="exec" style="display: none;">
+            <input type="text" name="command" placeholder="Command...">
+            <input type="submit" value="Execute">
+        </form>
+
+        <button id="connect">Connect</button>
+
+    </main>
+
+</body>
+
+</html>
