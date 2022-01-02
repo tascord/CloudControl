@@ -1,5 +1,2 @@
-client/ip
-server/allowed_config.json
-
 node_modules
 dist/

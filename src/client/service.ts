@@ -6,15 +6,17 @@ import http from "http";
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 import { io, Socket } from "socket.io-client";
-import { spawnSync } from "child_process";
+import { execSync } from "child_process";
+import { homedir } from "os";
 
 const app = express();
 const server = http.createServer(app);
 const socket_server = new SocketServer(server);
 
 console.clear();
+const config_file_location = join(homedir(), '.ccservice-client-ip');
 server.listen(process.env.PORT || 2121, () => console.log("Client Service listening on port " + (process.env.PORT || 2121)));
-let ip: string | false = existsSync(join(__dirname, 'ip')) ? readFileSync(join(__dirname, 'ip'), 'utf8') : false;
+let ip: string | false = existsSync(config_file_location) ? readFileSync(config_file_location, 'utf8') : false;
 let client_socket: Socket | undefined = ip ? io(ip, { port: 2122 }) : undefined;
 
 if(client_socket) {
@@ -56,7 +58,7 @@ socket_server.on('connection', socket => {
 
             client_socket?.emit('link', (err?: string) => {
                
-                writeFileSync(join(__dirname, 'ip'), address);
+                writeFileSync(config_file_location, address);
                 callback(err);
 
             })
@@ -78,7 +80,7 @@ function setup(socket: Socket) {
         console.log(`Running '${command}'.`);
         
         try {
-            spawnSync(command);
+            execSync(command);
             callback();
         } catch(e) {
             callback(e)

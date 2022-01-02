@@ -7,10 +7,11 @@ import { join } from "path";
 import { randomBytes } from "crypto";
 import express from "express";
 import http from "http";
+import { homedir } from "os";
 
 class Service {
 
-    private _config: Array<string> = JSON.parse(fetch_or_create_file('allowed_config.json', '[]', true));
+    private _config: Array<string> = JSON.parse(fetch_or_create_file('ccservice-client-paired.json', '[]', true));
     private _in_use_pairing_codes: { [pairing_code: string]: Socket } = {};
     private _host?: Socket;
 
@@ -20,7 +21,7 @@ class Service {
 
     private set config(token: Array<string>) {
         this._config = token;
-        writeFileSync(join(__dirname, 'allowed_config.json'), JSON.stringify(token));
+        writeFileSync(join(homedir(), 'ccservice-client-paired.json'), JSON.stringify(token));
     }
 
     // Pairing system
